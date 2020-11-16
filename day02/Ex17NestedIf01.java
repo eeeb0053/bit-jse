@@ -1,0 +1,45 @@
+package day02;
+// 사용자로부터
+// 성별 나이 신체등급을 입력 받아
+// 현역, 공익, 면제, 의무가 없습니다가 출력되는 프로그램
+
+import java.util.Scanner;
+public class Ex17NestedIf01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // 성별 입력
+        System.out.print("성별(1은 남자 2는 여자): ");
+        int sex = scanner.nextInt();
+        
+        if(sex == 1) {
+            // 남성이므로 나이 입력
+            System.out.print("나이: ");
+            int age = scanner.nextInt();
+            
+            if(age >= 18) {
+                // 성인이므로 신체등급을 입력받는다.
+                System.out.print("신체등급: ");
+                int category = scanner.nextInt();
+                
+                if(category >= 1 && category <= 3) {
+                    System.out.println("현역입니다.");
+                } else if(category == 4){
+                    System.out.println("공익입니다.");
+                } else {
+                    System.out.println("면제입니다.");
+                }
+            }else {
+                // 미성년자이므로 메세지만 출력해준다.
+                System.out.println("미성년자입니다.");
+            }
+        }else {
+            // 여성이므로 메세지 출력
+            System.out.println("의무가 없습니다.");
+        }
+        
+        
+        
+        scanner.close();
+    }
+}
